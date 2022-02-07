@@ -41,7 +41,7 @@ class Sun(Unit):
     ratio = 33.0
     type = 1
 
-class Bu(Unit):
+class LengthBu(Unit):
     name="分"
     ratio = 330.0
     type = 1

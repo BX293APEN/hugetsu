@@ -62,5 +62,5 @@ class Scalar(float):
 
     def convert(self, unit: Unit) -> "Scalar":
         if self.unit.type != unit.type:
-            raise Error("Unmatched unit type")
+            raise NotImplementedError("Unsupported unit type")
         return Scalar((self.___x/self.unit.ratio)*unit.ratio, unit)
