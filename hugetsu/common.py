@@ -1,6 +1,3 @@
-from msilib.schema import Error
-from typing import Any
-
 class Unit:
     """単位型クラス
 
