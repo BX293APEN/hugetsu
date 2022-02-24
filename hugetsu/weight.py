@@ -1,7 +1,7 @@
 from hugetsu.common import *
 
 
-class KiloGram:
+class KiloGram(Unit):
     name = "kg"
     ratio = 1.0
     type = 2
