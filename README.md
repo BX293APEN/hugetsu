@@ -13,5 +13,5 @@
 
 | Method        | type  | args      | description                   |
 | ---           | ---   | ---       | ---                           |
-| value         | str   | content   | `f"{値} {単位名}"`の文字列を返す <br> 引数で値を書き換え可能 |
+| value         | str   | content   | 値を返す <br> 引数で値を書き換え可能 |
 | si            | float | content   | SI単位系に直した時の値を返す<br> 引数にSI単位系で表した時の値を入れることで、値を書き換え可能 |

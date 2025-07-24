@@ -11,7 +11,7 @@ class Unit():
 使用可能メソッド  
 | Method        | type  | args      | description                   |
 | ---           | ---   | ---       | ---                           |
-| value         | str   | content   | `f"{値} {単位名}"`の文字列を返す <br> 引数で値を書き換え可能 |
+| value         | float | content   | 値を返す <br> 引数で値を書き換え可能 |
 | si            | float | content   | SI単位系に直した時の値を返す<br> 引数にSI単位系で表した時の値を入れることで、値を書き換え可能 |
     """
 
@@ -33,7 +33,7 @@ class Unit():
     def value(self, content = None):
         if content is not None:
             self.content = content / self.ratio
-        return f"{self.content * self.ratio} {self.name}"
+        return self.content * self.ratio
     
     def type_check(self, other):
         return self.type == other.type
