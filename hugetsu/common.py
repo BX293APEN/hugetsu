@@ -9,10 +9,14 @@ class Unit():
     def __str__(self):
         return f"{self.content * self.ratio} {self.name}"
     
-    def si(self):
+    def si(self, content = None):
+        if content is not None:
+            self.content = content
         return self.content
     
-    def value(self):
+    def value(self, content = None):
+        if content is not None:
+            self.content = content / self.ratio
         return f"{self.content * self.ratio} {self.name}"
     
     def type_check(self, other):
