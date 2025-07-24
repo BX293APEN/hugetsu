@@ -63,7 +63,7 @@ class Length(Unit):
     ratio   = 1.0
     type    = "length"
 
-    def __init__(self, content) -> "Length":
+    def __init__(self, content = 0) -> "Length":
         super().__init__(content)
 
 class Weight(Unit):
@@ -71,5 +71,5 @@ class Weight(Unit):
     ratio   = 1.0
     type    = "weight"
 
-    def __init__(self, content) -> "Weight":
+    def __init__(self, content = 0) -> "Weight":
         super().__init__(content)
