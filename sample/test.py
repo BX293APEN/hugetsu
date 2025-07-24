@@ -9,11 +9,15 @@ if __name__ == "__main__":
     r = Ri(20)
     k = KiloGram()
     print(m)
-    print(r)
+    print(f"{r.value()} [{r.name}]")
     print(r.si())
     print(m + r)
     print(r + m)
     print(k)
     k.value(20)
     print(k)
-    print(m + k)
+    try:
+        print(m + k)
+    except Exception as e:
+        print(e)
+    print(m.si() + k.si())

@@ -42,7 +42,7 @@ class Unit():
         if self.type_check(other):
             return type(self)((self.content + other.content) * self.ratio)
         else:
-            raise TypeError
+            raise TypeError("異なる種類の単位計算は出来ません")
     
     def __sub__(self, other):
         if self.type_check(other):
