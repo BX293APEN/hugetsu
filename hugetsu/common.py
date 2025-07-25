@@ -42,35 +42,49 @@ class Unit():
         if self.type_check(other):
             return type(self)((self.content + other.content) * self.ratio)
         else:
-            raise TypeError("異なる種類の単位計算は出来ません")
+            raise TypeError("異なる種類の単位の加算は出来ません")
     
     def __sub__(self, other):
         if self.type_check(other):
             return type(self)((self.content - other.content) * self.ratio)
+        else:
+            raise TypeError("異なる種類の単位の減算は出来ません")
     
     def __mul__(self, other):
         if self.type_check(other):
             return type(self)((self.content * other.content) * self.ratio)
+        else:
+            raise TypeError("異なる種類の単位の乗算は出来ません")
     
     def __truediv__(self, other):
         if self.type_check(other):
             return type(self)((self.content / other.content) * self.ratio)
+        else:
+            raise TypeError("異なる種類の単位の除算は出来ません")
     
     def __floordiv__(self, other):
         if self.type_check(other):
             return type(self)((self.content // other.content) * self.ratio)
+        else:
+            raise TypeError("異なる種類の単位の除算は出来ません")
     
     def __eq__(self, other):
         if self.type_check(other):
             return self.content == other.content
+        else:
+            raise TypeError("異なる種類の単位の比較は出来ません")
     
     def __lt__(self, other):
         if self.type_check(other):
             return self.content < other.content
+        else:
+            raise TypeError("異なる種類の単位の比較は出来ません")
     
     def __gt__(self, other):
         if self.type_check(other):
             return self.content > other.content
+        else:
+            raise TypeError("異なる種類の単位の比較は出来ません")
 
     
     
