@@ -43,28 +43,40 @@ class Unit():
             return type(self)((self.si() + other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の加算は出来ません")
-    
+        
     def __sub__(self, other):
         if self.type_check(other):
             return type(self)((self.si() - other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の減算は出来ません")
-    
+        
     def __mul__(self, other):
         if self.type_check(other):
             return type(self)((self.si() * other.si()) * self.ratio)
+        elif isinstance(other, (float, int)):
+            return type(self)((self.si() * other) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の乗算は出来ません")
-    
+        
+    def __rmul__(self, other):
+        if isinstance(other, (int, float)):
+            return type(self)((other * self.si()) * self.ratio)
+        else:
+            raise TypeError("異なる種類の単位の乗算は出来ません")
+        
     def __truediv__(self, other):
         if self.type_check(other):
             return type(self)((self.si() / other.si()) * self.ratio)
+        elif isinstance(other, (float, int)):
+            return type(self)((self.si() / other) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の除算は出来ません")
     
     def __floordiv__(self, other):
         if self.type_check(other):
             return type(self)(int((self.si() / other.si()) * self.ratio))
+        elif isinstance(other, (float, int)):
+            return type(self)(int((self.si() / other) * self.ratio))
         else:
             raise TypeError("異なる種類の単位の除算は出来ません")
     
@@ -86,8 +98,7 @@ class Unit():
         else:
             raise TypeError("異なる種類の単位の比較は出来ません")
 
-    
-    
+
 class Length(Unit):
     name    = "m"
     ratio   = 1.0
