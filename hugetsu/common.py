@@ -20,10 +20,10 @@ class Unit():
     type: str
 
     def __init__(self, content = 0):
-        self.content = content / self.ratio
+        self.value(content)
     
     def __str__(self):
-        return f"{self.content * self.ratio} {self.name}"
+        return f"{self.value()} {self.name}"
     
     def si(self, content = None):
         if content is not None:
@@ -40,49 +40,49 @@ class Unit():
 
     def __add__(self, other):
         if self.type_check(other):
-            return type(self)((self.content + other.content) * self.ratio)
+            return type(self)((self.si() + other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の加算は出来ません")
     
     def __sub__(self, other):
         if self.type_check(other):
-            return type(self)((self.content - other.content) * self.ratio)
+            return type(self)((self.si() - other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の減算は出来ません")
     
     def __mul__(self, other):
         if self.type_check(other):
-            return type(self)((self.content * other.content) * self.ratio)
+            return type(self)((self.si() * other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の乗算は出来ません")
     
     def __truediv__(self, other):
         if self.type_check(other):
-            return type(self)((self.content / other.content) * self.ratio)
+            return type(self)((self.si() / other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の除算は出来ません")
     
     def __floordiv__(self, other):
         if self.type_check(other):
-            return type(self)((self.content // other.content) * self.ratio)
+            return type(self)(int((self.si() / other.si()) * self.ratio))
         else:
             raise TypeError("異なる種類の単位の除算は出来ません")
     
     def __eq__(self, other):
         if self.type_check(other):
-            return self.content == other.content
+            return self.si() == other.si()
         else:
             raise TypeError("異なる種類の単位の比較は出来ません")
     
     def __lt__(self, other):
         if self.type_check(other):
-            return self.content < other.content
+            return self.si() < other.si()
         else:
             raise TypeError("異なる種類の単位の比較は出来ません")
     
     def __gt__(self, other):
         if self.type_check(other):
-            return self.content > other.content
+            return self.si() > other.si()
         else:
             raise TypeError("異なる種類の単位の比較は出来ません")
 
