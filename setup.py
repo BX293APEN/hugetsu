@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="UTF-8") as readme:
 
 setup(
     name                            = "hugetsu",
-    version                         = "0.1.0",
+    version                         = "0.1.1",
     packages                        = find_packages(),
     long_description                = description,          # パッケージの詳細な説明 (通常はREADME.mdから読み込む)
     long_description_content_type   = "text/markdown",      # long_descriptionの形式

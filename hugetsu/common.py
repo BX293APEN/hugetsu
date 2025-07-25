@@ -51,10 +51,10 @@ class Unit():
             raise TypeError("異なる種類の単位の減算は出来ません")
         
     def __mul__(self, other):
-        if self.type_check(other):
-            return type(self)((self.si() * other.si()) * self.ratio)
-        elif isinstance(other, (float, int)):
+        if isinstance(other, (float, int)):
             return type(self)((self.si() * other) * self.ratio)
+        elif self.type_check(other):
+            return type(self)((self.si() * other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の乗算は出来ません")
         
@@ -65,18 +65,18 @@ class Unit():
             raise TypeError("異なる種類の単位の乗算は出来ません")
         
     def __truediv__(self, other):
-        if self.type_check(other):
-            return type(self)((self.si() / other.si()) * self.ratio)
-        elif isinstance(other, (float, int)):
+        if isinstance(other, (float, int)):
             return type(self)((self.si() / other) * self.ratio)
+        elif self.type_check(other):
+            return type(self)((self.si() / other.si()) * self.ratio)
         else:
             raise TypeError("異なる種類の単位の除算は出来ません")
     
     def __floordiv__(self, other):
-        if self.type_check(other):
-            return type(self)(int((self.si() / other.si()) * self.ratio))
-        elif isinstance(other, (float, int)):
+        if isinstance(other, (float, int)):
             return type(self)(int((self.si() / other) * self.ratio))
+        elif self.type_check(other):
+            return type(self)(int((self.si() / other.si()) * self.ratio))
         else:
             raise TypeError("異なる種類の単位の除算は出来ません")
     
